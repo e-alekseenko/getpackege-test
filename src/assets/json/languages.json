@@ -1,0 +1,14 @@
+[
+  {
+    "iso": "en",
+    "name": "English",
+    "showName": "Eng",
+    "dir": "ltr"
+  },
+  {
+    "iso": "he",
+    "name": "Hebrew",
+    "showName": "Heb",
+    "dir": "rtl"
+  }
+]

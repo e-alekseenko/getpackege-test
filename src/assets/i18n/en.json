@@ -1,0 +1,36 @@
+{
+	"general": {
+		"poweredBy": "Powered by Alekseenko Eugene"
+	},
+	"validation": {
+		"required": "Field is required",
+		"wrongEmail": "Please enter a valid email address"
+	},
+	"auth": {
+		"login": "Login",
+		"loginBtn": "Login",
+		"email": "Email",
+		"password": "Passowrd",
+		"wrongPassword": "Your email or password are incorrect"
+	},
+	"order": {
+		"title": "Create an Order Delivery",
+		"sender": "Sender",
+		"receiver": "Receiver",
+		"senderName": "Sender name",
+		"senderPhone": "Sender phone",
+		"senderAddress": "Sender address",
+		"senderCity": "Sender city",
+		"receiverName": "Receiver name",
+		"receiverPhone": "Receiver phone",
+		"receiverAddress": "Receiver address",
+		"receiverCity": "Receiver city",
+		"orderDate": "Order date",
+		"orderTime": "Order time",
+		"createOrder": "Create order",
+		"amount": "Amount",
+		"vat": "vat",
+		"total": "Total",
+		"success": "Created successfully"
+	}
+}

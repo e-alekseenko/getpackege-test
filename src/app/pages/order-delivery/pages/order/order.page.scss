@@ -1,0 +1,10 @@
+:host {
+    mat-card {
+        max-width: 1000px;
+        margin-top: 20px;
+        .map-block {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

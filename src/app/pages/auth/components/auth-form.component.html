@@ -1,0 +1,34 @@
+<form class="auth-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="field login">
+        <input
+            matInput
+            [placeholder]="'auth.email' | translate"
+            type="email"
+            [formControlName]="'email'"
+        />
+        <mat-error *ngIf="emailInput?.hasError('required')">{{
+            'validation.required' | translate
+        }}</mat-error>
+        <mat-error *ngIf="emailInput?.hasError('email')">{{
+            'validation.wrongEmail' | translate
+        }}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="field password">
+        <input
+            matInput
+            [placeholder]="'auth.password' | translate"
+            type="password"
+            [formControlName]="'password'"
+        />
+        <mat-error *ngIf="passwordInput?.hasError('required')">{{
+            'validation.required' | translate
+        }}</mat-error>
+    </mat-form-field>
+
+    <ng-content select=".error"></ng-content>
+    <div class="auth-form__action">
+        <button mat-raised-button color="primary" type="submit">
+            {{ 'auth.loginBtn' | translate }}
+        </button>
+    </div>
+</form>

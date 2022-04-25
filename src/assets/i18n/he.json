@@ -1,0 +1,36 @@
+{
+    "general": {
+        "poweredBy": "מונע ע\"י Alekseenko Eugene"
+    },
+    "validation": {
+        "required": "שדה נדרש",
+        "wrongEmail": "אנא הזן כתובת דוא\"ל תקנית"
+    },
+    "auth": {
+        "login": "התחברות",
+        "loginBtn": "התחברות",
+        "email": "אימייל",
+        "password": "סיסמה",
+        "wrongPassword": "האימייל או הסיסמה שלך שגויים"
+    },
+    "order": {
+        "title": "צור משלוח הזמנה",
+        "sender": "שׁוֹלֵחַ",
+        "receiver": "מַקְלֵט",
+        "senderName": "שם השולח",
+        "senderPhone": "טלפון השולח",
+        "senderAddress": "כתובת השולח",
+        "senderCity": "עיר השולח",
+        "receiverName": "שם המקבל",
+        "receiverPhone": "טלפון מקלט",
+        "receiverAddress": "כתובת נמען",
+        "receiverCity": "עיר מקלט",
+        "orderDate": "תאריך הזמנה",
+        "orderTime": "זמן הזמנה",
+        "createOrder": "צור סדר",
+        "amount": "כמות",
+        "vat": "מס ערך מוסף",
+        "total": "סך הכל",
+        "success": "נוצר בהצלחה"
+    }
+}

@@ -1,0 +1,164 @@
+<form
+    class="order-form"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    #formDirective="ngForm"
+>
+    <div class="order-form__group">
+        <div class="order-form__col">
+            <h3>{{ 'order.sender' | translate }}</h3>
+            <!-- senderName -->
+            <mat-form-field class="field">
+                <input
+                    matInput
+                    [placeholder]="'order.senderName' | translate"
+                    type="text"
+                    formControlName="senderName"
+                />
+            </mat-form-field>
+
+            <!-- senderPhone -->
+            <mat-form-field class="field">
+                <input
+                    matInput
+                    prefix="+972 "
+                    mask="(00) 000-0000"
+                    [placeholder]="'order.senderPhone' | translate"
+                    type="text"
+                    formControlName="senderPhone"
+                />
+            </mat-form-field>
+
+            <!-- senderAddress -->
+            <mat-form-field class="field">
+                <input
+                    matInput
+                    [placeholder]="'order.senderAddress' | translate"
+                    type="text"
+                    formControlName="senderAddress"
+                />
+            </mat-form-field>
+
+            <!-- senderCity -->
+            <mat-form-field class="field">
+                <mat-label>{{ 'order.senderCity' | translate }}</mat-label>
+                <mat-select formControlName="senderCity">
+                    <mat-option
+                        *ngFor="let city of cities$ | async"
+                        [value]="city"
+                    >
+                        {{ city[(lang$ | async) + 'Name'] }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="order-form__col">
+            <h3>{{ 'order.receiver' | translate }}</h3>
+            <!-- receiverName -->
+            <mat-form-field class="field">
+                <input
+                    matInput
+                    [placeholder]="'order.receiverName' | translate"
+                    type="text"
+                    formControlName="receiverName"
+                />
+            </mat-form-field>
+
+            <!-- receiverPhone -->
+            <mat-form-field class="field">
+                <input
+                    matInput
+                    prefix="+972 "
+                    mask="(00) 000-0000"
+                    [placeholder]="'order.receiverPhone' | translate"
+                    type="text"
+                    formControlName="receiverPhone"
+                />
+                <mat-error
+                    *ngIf="formData['receiverPhone'].hasError('required')"
+                    >{{ 'validation.required' | translate }}</mat-error
+                >
+            </mat-form-field>
+
+            <!-- receiverAddress -->
+            <mat-form-field class="field">
+                <input
+                    matInput
+                    [placeholder]="'order.receiverAddress' | translate"
+                    type="text"
+                    formControlName="receiverAddress"
+                />
+            </mat-form-field>
+
+            <!-- receiverCity -->
+            <mat-form-field class="field">
+                <mat-label>{{ 'order.receiverCity' | translate }}</mat-label>
+                <mat-select formControlName="receiverCity">
+                    <mat-option
+                        *ngFor="let city of cities$ | async"
+                        [value]="city"
+                    >
+                        {{ city[(lang$ | async) + 'Name'] }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="order-form__row">
+        <div class="wrapper">
+            <!-- date -->
+            <mat-form-field class="field" (click)="picker.open()">
+                <mat-label>{{ 'order.orderDate' | translate }}</mat-label>
+                <input
+                    matInput
+                    formControlName="date"
+                    [matDatepicker]="picker"
+                    [min]="minDate"
+                    [matDatepickerFilter]="dateFilter"
+                    readonly
+                />
+                <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <!-- time -->
+            <mat-form-field class="field">
+                <mat-label>{{ 'order.orderTime' | translate }}</mat-label>
+                <mat-select formControlName="time">
+                    <mat-option
+                        *ngFor="let time of filteredTimes$ | async"
+                        [value]="time"
+                    >
+                        {{ time }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="order-form__price">
+        <div class="wrapper">
+            <div class="main">
+                <span>{{ 'order.amount' | translate }}:</span>
+                <span>{{ amount | currency: 'ILS' }}</span>
+            </div>
+            <div class="vat">
+                <span>{{ 'order.vat' | translate }}:</span>
+                <span>{{ amount * 0.17 | currency: 'ILS' }}</span>
+            </div>
+            <div class="total">
+                <span>{{ 'order.total' | translate }}:</span>
+                <span>{{ amount * 1.17 | currency: 'ILS' }}</span>
+            </div>
+        </div>
+    </div>
+
+    <ng-content select=".error"></ng-content>
+    <div class="order-form__action">
+        <button mat-raised-button color="primary" type="submit">
+            {{ 'order.createOrder' | translate }}
+        </button>
+    </div>
+</form>

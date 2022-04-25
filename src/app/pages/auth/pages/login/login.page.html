@@ -1,0 +1,12 @@
+<header class="auth__header">
+    <img src="/assets/images/logo.png" />
+    <h1>{{ 'auth.login' | translate }}</h1>
+</header>
+<app-auth-form (submitted)="login($event)">
+    <div class="error">{{ error }}</div>
+</app-auth-form>
+<footer class="auth__footer">
+    <div class="by">{{ 'general.poweredBy' | translate }}</div>
+    <app-lang-selector></app-lang-selector>
+</footer>
+<app-loader *ngIf="loading"></app-loader>

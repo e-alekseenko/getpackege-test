@@ -1,0 +1,30 @@
+:host ::ng-deep {
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .field {
+      width: 100%;
+      min-width: 300px;
+      padding-bottom: 10px;
+    }
+
+    &__action {
+      text-align: center;
+      button {
+        min-width: 300px;
+      }
+    }
+
+    .error {
+      color: #f44336;
+      height: 40px;
+    }
+  }
+}

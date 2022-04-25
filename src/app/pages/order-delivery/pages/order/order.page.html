@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{ 'order.title' | translate }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-order-form
+            [lang$]="lang$"
+            [cities$]="cities$"
+            [times$]="times$"
+            (cityChanged)="cityChange($event)"
+        >
+        </app-order-form>
+        <div class="map-block">
+            <app-order-map [cities]="cities"></app-order-map>
+        </div>
+    </mat-card-content>
+</mat-card>
